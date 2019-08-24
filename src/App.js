@@ -1,15 +1,24 @@
-import React from 'react';
+import { Router } from '@reach/router';
+import React, { Component } from 'react';
 import './App.css';
+import 'bootstrap/dist/css/bootstrap.css';
+import Home from './components/home/Home';
+import Articles from './components/articles/Articles';
+import Article from './components/articles/Article';
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-
-
-      </header>
-    </div>
-  );
+class App extends Component {
+  state = {}
+  render() {
+    return (
+      <Router>
+        <Home path="/" />
+        <Articles path="/articles" />
+        <Article path="/articles/:id" />
+      </Router>);
+  }
 }
+
+/* <Articles path="/articles" />
+  <Topics path="/topics" /> */
 
 export default App;
