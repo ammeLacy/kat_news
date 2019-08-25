@@ -1,37 +1,37 @@
+* {
+box-sizing: border-box;
+}
 .App {
   text-align: center;
 }
-
 body {
   height: 100%;
   background-color: #FFCCCC;
 }
-
-* {
-box-sizing: border-box;
-}
-
+/*Nav components*/
 #navBar {
   background-color: #D6EAF8 ;
   font-family: 'Muli', sans-serif;
 }
-
 .nav-link {
   color: #663399;
 }
-
 .btn-secondary.dropdown-toggle {
-   background-color:#D6EAF8  ;
-   border-color:#D6EAF8 ;
-   color:  #663399;
+  background-color:#D6EAF8  ;
+  border-color:#D6EAF8 ;
+  color:  #663399;
+}
+/*Article components*/
+.grid-article, .grid-comments{
+  font-family: 'Livvic', sans-serif;
 }
 
 .grid-container {
-   width: 100%;
-   height: 100vh;
+  width: 100%;
+  height: 100vh;
   display: grid;
-   grid-template-columns: 2fr 1fr;
-   grid-template-rows: auto auto;
+  grid-template-columns: 2fr 1fr;
+  grid-template-rows: auto auto;
   padding: 10px;
   grid-column-gap: 10px;
   justify-items: start;
@@ -46,6 +46,24 @@ box-sizing: border-box;
   grid-column: 1 / 2;
   grid-row: 1 /2;
 }
+.grid-comments {
+  background-color: #E3F2FD;
+  border: 1px solid rgba(0, 0, 0, 0.8);
+  padding: 20px;
+  font-size: 15px;
+  text-align: center;
+  grid-column: 1 / 2;
+  grid-row: 2/2;
+  justify-self: stretch;
+  align-self: start;
+}
+
+.comment {
+  background-blend-mode: luminosity;
+  background-color: bisque;
+  border: bisque 1px;
+  font-size: 15px;
+}
 
 .grid-articles {
   background-color: rgba(255, 255, 255, 0.8);
@@ -53,10 +71,7 @@ box-sizing: border-box;
   padding: 20px;
   font-size: 30px;
   text-align: center;
-  grid-column: 2 / 3;
-  grid-row: 1 /3;
+  grid-column: 1 / 2;
+  grid-row: 1 /2;
 }
 
-article {
-  font-family: 'Livvic', sans-serif;
-}

@@ -5,14 +5,14 @@ const ArticleCard = (props) => {
   const { author, body, comment_count, title, topic, votes } = props.article;
   return (
     <article className="grid-article">
-      <div>{title}
-        {topic}
+      <div><h1>{title}</h1>
+        <h2>{topic}</h2>
       </div>
       <hr></hr>
-      <p>Author: {author}</p>
+      <h3>Author: {author}</h3>
       <p>{body}</p>
-      <p>Number of comments: {comment_count}</p>
-      <p>Vote: {votes}</p>
+      <h4>Comments: {comment_count}</h4>
+      <h4>Votes: {votes}</h4>
     </article >
   );
 };

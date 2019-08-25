@@ -22,14 +22,14 @@ class ArticleList extends Component {
       )
     }
     return (
-      <ul>
+      <dl>
         {
           articles.map(article => {
             return <ArticleListCard key={article.article_id} article={article} />
           })
         }
 
-      </ul>);
+      </dl>);
 
 
   }

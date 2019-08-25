@@ -3,8 +3,7 @@ import CommentListCard from './CommentListCard';
 
 const CommentList = (props) => {
   const { comments } = props;
-  console.log(comments)
-  return (<ul>
+  return (<ul className="grid-comments">
     {
       comments.map(comment => {
         return <CommentListCard
@@ -16,12 +15,3 @@ const CommentList = (props) => {
 
 export default CommentList;
 
-// return (
-//   <ul>
-//     {
-//       articles.map(article => {
-//         return <ArticleListCard key={article.article_id} article={article} />
-//       })
-//     }
-
-//   </ul>);
