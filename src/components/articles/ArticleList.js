@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { getArticles } from '../../utils/api';
-import ArticleCard from './ArticleCard';
+import ArticleListCard from './ArticleListCard';
 const queryString = require('query-string');
 
 class ArticleList extends Component {
@@ -25,7 +25,7 @@ class ArticleList extends Component {
       <ul>
         {
           articles.map(article => {
-            return <ArticleCard key={article.article_id} article={article} />
+            return <ArticleListCard key={article.article_id} article={article} />
           })
         }
 
