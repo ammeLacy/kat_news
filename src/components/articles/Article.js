@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import { getArticle, getArticleComments } from '../../utils/api';
-import Header from '../header/Header';
 import ArticleCard from './ArticleCard';
 import CommentList from '../comments/CommentList';
 
@@ -31,7 +30,6 @@ class Article extends Component {
     //console.log(this.props)
     return (
       <>
-        <Header currentUser={this.props.currentUser} setuser={this.props.setuser} />
         <div className="grid-container">
           <ArticleCard article={article} />
           <CommentList comments={comments} />
