@@ -1,4 +1,6 @@
 import React from 'react';
+import CommentsModal from '../comments/CommentsModal';
+
 
 
 const ArticleCard = (props) => {
@@ -14,6 +16,7 @@ const ArticleCard = (props) => {
       <p>{body}</p>
       <h4>Comments: {comment_count}</h4>
       <h4>Votes: {votes}</h4>
+      <CommentsModal show={props.show} />
     </article >
   );
 };

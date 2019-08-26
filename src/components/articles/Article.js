@@ -9,7 +9,8 @@ class Article extends Component {
   state = {
     article: null,
     comments: null,
-    isLoading: true
+    isLoading: true,
+    show: false
   };
 
   componentDidMount() {
@@ -19,15 +20,21 @@ class Article extends Component {
       .then((results) => {
         this.setState({ article: results[0], comments: results[1], isLoading: false })
       })
-
   }
+
+  showModal = () => {
+    this.setState({ show: true });
+  };
+
+  hideModal = () => {
+    this.setState({ show: false });
+  };
 
   render() {
     const { isLoading, article, comments } = this.state
     if (isLoading) {
       return (<>Loading</>);
     }
-    //console.log(this.props)
     return (
       <>
         <div className="grid-container">
