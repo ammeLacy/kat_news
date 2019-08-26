@@ -2,6 +2,7 @@ import React from 'react';
 
 
 const ArticleCard = (props) => {
+  //console.log(props.article)
   const { author, body, comment_count, title, topic, votes } = props.article;
   return (
     <article className="grid-article">

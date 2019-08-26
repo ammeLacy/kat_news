@@ -28,9 +28,10 @@ class Article extends Component {
     if (isLoading) {
       return (<>Loading</>);
     }
+    //console.log(this.props)
     return (
       <>
-        <Header />
+        <Header currentUser={this.props.currentUser} setuser={this.props.setuser} />
         <div className="grid-container">
           <ArticleCard article={article} />
           <CommentList comments={comments} />

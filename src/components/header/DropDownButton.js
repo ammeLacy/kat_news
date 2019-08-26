@@ -40,4 +40,3 @@ export default class DropDownButton extends React.Component {
     );
   }
 }
-//<Link to={'/students/' + student._id}>{student.name}</Link>

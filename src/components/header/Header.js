@@ -2,11 +2,11 @@ import React from 'react';
 import '../../App.css';
 import NavBar from './NavBar';
 
-const Header = () => {
+const Header = (props) => {
   return (
     <>
       <header className="App">Kat-News</header>
-      <NavBar />
+      <NavBar currentUser={props.currentUser} setuser={props.setuser} />
     </>
   );
 }

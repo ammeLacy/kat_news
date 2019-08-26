@@ -1,6 +1,10 @@
 import React from 'react';
 import { Nav, NavItem, NavLink } from 'reactstrap';
 import DropDownButton from './DropDownButton';
+import ArticleDropDownButton from './ArticleDropDownButton';
+import DefaultUserButton from './DefaultUserButton';
+
+
 
 export default class NavBar extends React.Component {
 
@@ -12,16 +16,13 @@ export default class NavBar extends React.Component {
             <NavLink href="/">Home</NavLink>
           </NavItem>
           <NavItem>
-            <NavLink href="/articles">Articles</NavLink>
-          </NavItem>
-          <NavItem>
-            <NavLink href="/topics">Topics</NavLink>
+            <ArticleDropDownButton text='Articles' />
           </NavItem>
           <NavItem>
             <DropDownButton />
           </NavItem>
           <NavItem>
-            <NavLink disabled href="#">Disabled Link</NavLink>
+            <DefaultUserButton currentUser={this.props.currentUser} setuser={this.props.setuser} />
           </NavItem>
         </Nav>
 

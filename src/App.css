@@ -21,6 +21,13 @@ body {
   border-color:#D6EAF8 ;
   color:  #663399;
 }
+.btn-secondary {
+  background-color:#D6EAF8  ;
+  border-color:#D6EAF8 ;
+  color:  #663399;
+  float: right;
+}
+
 /*Article components*/
 .grid-article, .grid-comments{
   font-family: 'Livvic', sans-serif;

@@ -5,7 +5,7 @@ const baseUrl = "https://kat-news.herokuapp.com/api";
 //Article related calls 
 exports.getArticles = async (search) => {
   const { data } = await axios.get(baseUrl + '/articles', { params: search });
-
+  //console.log(search)
   return data.articles;
 }
 

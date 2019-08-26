@@ -7,18 +7,18 @@ import Articles from './components/articles/Articles';
 import Article from './components/articles/Article';
 
 class App extends Component {
-  state = {}
+  state = { currentUser: null }
   render() {
     return (
       <Router>
         <Home path="/" />
         <Articles path="/articles" />
-        <Article path="/articles/:id" />
+        <Article path="/articles/:id" currentUser={this.state.currentUser} setuser={this.setUser} />
       </Router>);
   }
+  setUser = (username) => {
+    this.setState({ currentUser: username });
+  }
 }
-
-/* <Articles path="/articles" />
-  <Topics path="/topics" /> */
 
 export default App;
