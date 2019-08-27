@@ -24,10 +24,12 @@ class CommentsModal extends React.Component {
     const { currentUser } = this.props;
     console.log(currentUser)
     console.log(newComment)
-    postArticleComments(newComment, currentUser, articleId).then((newlyPostComment) => {
-      //this.props.addItem(newlyPostComment);
-    }).catch(err =>
-      console.dir(err))
+    postArticleComments(newComment, currentUser, articleId)
+      .then(() => { })
+      .catch(error => {
+        const { status, statusText } = error.response;
+        navigate('/error', { state: { status, statusText } });
+      })
     this.toggle();
   }
   render() {

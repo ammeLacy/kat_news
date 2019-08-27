@@ -1,7 +1,9 @@
 import React, { Component } from 'react';
 import { getArticles } from '../../utils/api';
 import ArticleListCard from './ArticleListCard';
+import { navigate } from '@reach/router';
 const queryString = require('query-string');
+
 
 class ArticleList extends Component {
   state = {
@@ -10,9 +12,14 @@ class ArticleList extends Component {
   }
   componentDidMount() {
     const queryParams = queryString.parse(this.props.search);
-    getArticles(queryParams).then((articles) => {
-      this.setState({ articles, isLoading: false })
-    })
+    getArticles(queryParams)
+      .then((articles) => {
+        this.setState({ articles, isLoading: false })
+      })
+      .catch((error) => {
+        const { status, statusText } = error.response;
+        navigate('/error', { state: { status, statusText } });
+      })
   }
   render() {
     const { isLoading, articles } = this.state
