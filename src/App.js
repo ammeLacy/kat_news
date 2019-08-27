@@ -18,7 +18,7 @@ class App extends Component {
           <Home path="/" />
           <Articles path="/articles" />
           <Article path="/articles/:id" currentUser={this.state.currentUser} />
-          <Error path="/error" />
+          <Error path="/error" error={{ status: 404, statusText: "not found" }} default />
         </Router>
       </div>
     );
