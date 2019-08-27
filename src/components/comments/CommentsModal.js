@@ -1,30 +1,50 @@
 import React from 'react';
 import { Button, Modal, ModalHeader, ModalBody, ModalFooter } from 'reactstrap';
+import { postArticleComments } from '../../utils/api';
 
 class CommentsModal extends React.Component {
   state = {
-    modal: false
+    modal: false,
+    newComment: '',
   };
-
   toggle = () => {
     this.setState(prevState => ({
       modal: !prevState.modal
     }));
   }
-
+  handleChange = (text) => {
+    this.setState({ newComment: text });
+    //this.state.newComment = event.target.value;
+  }
+  handleSubmit = (event) => {
+    event.preventDefault();
+    //console.log(this.props.article_id.article.article_id)
+    const { articleId } = this.props;
+    const { newComment } = this.state;
+    const { currentUser } = this.props;
+    console.log(currentUser)
+    console.log(newComment)
+    postArticleComments(newComment, currentUser, articleId).then((newlyPostComment) => {
+      //this.props.addItem(newlyPostComment);
+    }).catch(err =>
+      console.dir(err))
+    this.toggle();
+  }
   render() {
     return (
       <div>
-        <Button color="danger" onClick={this.toggle}>{'this.props.buttonLabel'}</Button>
+        <Button color="danger" onClick={this.toggle}>Write a Comment</Button>
         <Modal isOpen={this.state.modal} toggle={this.toggle} className={this.props.className}>
-          <ModalHeader toggle={this.toggle}>Modal title</ModalHeader>
-          <ModalBody>
-            Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-          </ModalBody>
-          <ModalFooter>
-            <Button color="primary" onClick={this.toggle}>Do Something</Button>{' '}
-            <Button color="secondary" onClick={this.toggle}>Cancel</Button>
-          </ModalFooter>
+          <form onSubmit={this.handleSubmit}>
+            <ModalHeader toggle={this.toggle}>Write your comment</ModalHeader>
+            <ModalBody>
+              <textarea type="text" rows="4" cols="50" name="newComment" onChange={(e) => this.handleChange(e.target.value)} required></textarea>
+            </ModalBody>
+            <ModalFooter>
+              <Button color="primary">Submit your comment</Button>{' '}
+              <Button color="secondary" onClick={this.toggle}>Cancel</Button>
+            </ModalFooter>
+          </form>
         </Modal>
       </div>
     );

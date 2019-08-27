@@ -3,7 +3,6 @@ import React, { Component } from 'react';
 class CommentListCard extends Component {
   state = {}
   render() {
-    console.log(this.props)
     const { comment } = this.props;
     return (<dt>
       <div className="comment">

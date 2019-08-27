@@ -14,6 +14,7 @@ class Article extends Component {
   };
 
   componentDidMount() {
+    //console.log(this.props)
     const articlePromise = getArticle(this.props.id);
     const commentsPromise = getArticleComments(this.props.id);
     Promise.all([articlePromise, commentsPromise])
@@ -38,7 +39,7 @@ class Article extends Component {
     return (
       <>
         <div className="grid-container">
-          <ArticleCard article={article} />
+          <ArticleCard article={article} currentUser={this.props.currentUser} />
           <CommentList comments={comments} />
           {/* <div className="grid-articles">2</div> */}
         </div>

@@ -2,7 +2,6 @@ import React from 'react';
 import { Button } from 'reactstrap';
 
 const DefaultUserButton = (props) => {
-  console.log(props)
   return (
     <div>
       <Button color="secondary" onClick={() => handleClick(props.setuser)}>
