@@ -1,6 +1,7 @@
 import React from 'react';
 import { Button, Modal, ModalHeader, ModalBody, ModalFooter } from 'reactstrap';
 import { postArticleComments } from '../../utils/api';
+import { navigate } from '@reach/router';
 
 class CommentsModal extends React.Component {
   state = {
@@ -14,7 +15,6 @@ class CommentsModal extends React.Component {
   }
   handleChange = (text) => {
     this.setState({ newComment: text });
-    //this.state.newComment = event.target.value;
   }
   handleSubmit = (event) => {
     event.preventDefault();
