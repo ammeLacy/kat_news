@@ -22,8 +22,6 @@ class CommentsModal extends React.Component {
     const { articleId } = this.props;
     const { newComment } = this.state;
     const { currentUser } = this.props;
-    console.log(currentUser)
-    console.log(newComment)
     postArticleComments(newComment, currentUser, articleId)
       .then(() => { })
       .catch(error => {
@@ -40,7 +38,7 @@ class CommentsModal extends React.Component {
           <form onSubmit={this.handleSubmit}>
             <ModalHeader toggle={this.toggle}>Write your comment</ModalHeader>
             <ModalBody>
-              <textarea type="text" rows="4" cols="50" name="newComment" onChange={(e) => this.handleChange(e.target.value)} required></textarea>
+              <textarea type="text" rows="4" cols="50" name="newComment" maxlength="255" onChange={(e) => this.handleChange(e.target.value)} required></textarea>
             </ModalBody>
             <ModalFooter>
               <Button color="primary">Submit your comment</Button>{' '}

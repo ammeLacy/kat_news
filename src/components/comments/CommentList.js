@@ -2,12 +2,13 @@ import React from 'react';
 import CommentListCard from './CommentListCard';
 
 const CommentList = (props) => {
-  const { comments } = props;
+  const { comments, currentUser } = props;
+  console.log(currentUser)
   return (<ul className="grid-comments">
     {
       comments.map(comment => {
         return <CommentListCard
-          key={comment.comment_id} comment={comment} />
+          key={comment.comment_id} comment={comment} currentUser={currentUser} />
       })
     }
   </ul>);

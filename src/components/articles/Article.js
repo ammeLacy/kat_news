@@ -41,7 +41,7 @@ class Article extends Component {
       <>
         <div className="grid-container">
           <ArticleCard article={article} currentUser={this.props.currentUser} />
-          <CommentList comments={comments} />
+          <CommentList comments={comments} currentUser={this.props.currentUser} />
           {/* <div className="grid-articles">2</div> */}
         </div>
 
