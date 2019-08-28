@@ -38,10 +38,10 @@ class CommentsModal extends React.Component {
           <form onSubmit={this.handleSubmit}>
             <ModalHeader toggle={this.toggle}>Write your comment</ModalHeader>
             <ModalBody>
-              <textarea type="text" rows="4" cols="50" name="newComment" maxlength="255" onChange={(e) => this.handleChange(e.target.value)} required></textarea>
+              <textarea type="text" rows="4" cols="50" name="newComment" maxLength={255} onChange={(e) => this.handleChange(e.target.value)} required></textarea>
             </ModalBody>
             <ModalFooter>
-              <Button color="primary">Submit your comment</Button>{' '}
+              <Button color="primary">Submit your comment</Button>
               <Button color="secondary" onClick={this.toggle}>Cancel</Button>
             </ModalFooter>
           </form>

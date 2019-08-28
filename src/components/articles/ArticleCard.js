@@ -1,11 +1,11 @@
 import React from 'react';
 import CommentsModal from '../comments/CommentsModal';
+import VoteUpdater from '../multiUseComponents/VoteUpdater';
+import { updateArticleVotes } from '../../utils/api';
 
 
 
 const ArticleCard = (props) => {
-  //console.log(props.article)
-  console.log(props)
   const { article_id, author, body, comment_count, title, topic, votes } = props.article;
   return (
     <article className="grid-article">
@@ -16,8 +16,9 @@ const ArticleCard = (props) => {
       <h3>Author: {author}</h3>
       <p>{body}</p>
       <h4>Comments: {comment_count}</h4>
-      <h4>Votes: {votes}</h4>
+      <VoteUpdater updateVotes={updateArticleVotes} object_id={article_id} votes={votes} />
       <CommentsModal show={props.show} articleId={article_id} currentUser={props.currentUser} />
+
     </article >
   );
 };

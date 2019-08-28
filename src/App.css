@@ -65,11 +65,24 @@ body {
   align-self: start;
 }
 
-.comment {
-  background-blend-mode: luminosity;
+
+.commentContainer {
+   grid-template-columns: 2fr ;
+  grid-template-rows: auto auto;
+}
+
+.comments {
+   grid-column: 1 / 2;
+   grid-row: 1/2;
+   border: 1px solid rgba(0, 0, 0, 0.8);
+   background-color: bisque;
+}
+
+.commentButtons {
+   grid-column: 1 / 2;
+   grid-row: 2/3;
+  border: 1px solid rgba(0, 0, 0, 0.8);
   background-color: bisque;
-  border: bisque 1px;
-  font-size: 15px;
 }
 
 .grid-articles {
@@ -81,4 +94,5 @@ body {
   grid-column: 1 / 2;
   grid-row: 1 /2;
 }
+
 
