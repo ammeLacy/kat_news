@@ -17,8 +17,9 @@ const ArticleCard = (props) => {
       <p>{body}</p>
       <h4>Comments: {comment_count}</h4>
       <VoteUpdater updateVotes={updateArticleVotes} object_id={article_id} votes={votes} currentUser={props.currentUser} author={author} />
-      <CommentsModal show={props.show} articleId={article_id} currentUser={props.currentUser} />
-
+      {(props.currentUser !== null) &&
+        <CommentsModal show={props.show} articleId={article_id} currentUser={props.currentUser} />
+      }
     </article >
   );
 };

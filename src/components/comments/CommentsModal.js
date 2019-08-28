@@ -18,7 +18,6 @@ class CommentsModal extends React.Component {
   }
   handleSubmit = (event) => {
     event.preventDefault();
-    //console.log(this.props.article_id.article.article_id)
     const { articleId } = this.props;
     const { newComment } = this.state;
     const { currentUser } = this.props;
