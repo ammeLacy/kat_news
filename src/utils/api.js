@@ -32,9 +32,17 @@ exports.postArticleComments = async (newComment, currentUser, article_id) => {
 }
 
 exports.deleteArticleComment = async (comment_id) => {
-  console.log(comment_id)
   axios.delete(`${baseUrl}/comments/${comment_id}`);
 }
+
+//PATCH / api / comments /: comment_id { inc_votes: newVote }
+exports.updateCommentVotes = async (comment_id, vote) => {
+  console.log(comment_id)
+  const { data } = await axios.patch(`${baseUrl}/comments/${comment_id}`, { inc_votes: vote })
+  return data.comment;
+}
+
+
 
 //Topic realated calls
 exports.getTopics = async () => {

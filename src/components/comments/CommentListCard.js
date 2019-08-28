@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import { Button } from 'reactstrap';
 import { deleteArticleComment } from '../../utils/api';
+import VoteUpdater from '../multiUseComponents/VoteUpdater';
+import { updateCommentVotes } from '../../utils/api';
 
 
 class CommentListCard extends Component {
@@ -8,20 +10,14 @@ class CommentListCard extends Component {
     hideDeleteButton: true
   };
   render() {
-    const { comment } = this.props;
-    const { comment_id, currentUser } = comment;
-
-
-    if (currentUser !== null) {
-      let style = false;
-    }
-
+    const { comment, currentUser } = this.props;
+    const { comment_id, author } = comment;
     return (
       <div className='commentContainer' >
         <div className="comment">
-          <h2>author: {comment.author}</h2>
+          <h2>author: {author}</h2>
           <p>{comment.body}</p>
-          <h3>votes: {comment.votes}</h3>
+          <VoteUpdater updateVotes={updateCommentVotes} object_id={comment_id} votes={comment.votes} currentUser={currentUser} author={author} />
           <h3>posted: {comment.created_at} </h3>
         </div>
         <div className="commentButton">

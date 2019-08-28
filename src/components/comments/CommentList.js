@@ -3,7 +3,6 @@ import CommentListCard from './CommentListCard';
 
 const CommentList = (props) => {
   const { comments, currentUser } = props;
-  console.log(currentUser)
   return (<ul className="grid-comments">
     {
       comments.map(comment => {

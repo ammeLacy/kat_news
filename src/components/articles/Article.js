@@ -23,15 +23,12 @@ class Article extends Component {
         navigate('/error', { state: { status, statusText } });
       }))
   }
-
   showModal = () => {
     this.setState({ show: true });
   };
-
   hideModal = () => {
     this.setState({ show: false });
   };
-
   render() {
     const { isLoading, article, comments } = this.state
     if (isLoading) {
@@ -49,7 +46,6 @@ class Article extends Component {
     )
   }
 }
-
 export default Article;
 
 
