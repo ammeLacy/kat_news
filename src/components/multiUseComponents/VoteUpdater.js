@@ -1,5 +1,9 @@
 import React, { Component } from 'react';
 import { Button, ButtonGroup } from 'reactstrap';
+import { faThumbsUp } from "@fortawesome/free-solid-svg-icons";
+import { faThumbsDown } from "@fortawesome/free-solid-svg-icons";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+
 
 
 class VoteUpdater extends Component {
@@ -21,8 +25,11 @@ class VoteUpdater extends Component {
       <h4>Votes: {votes}</h4>
       {(currentUser !== undefined && currentUser !== null && currentUser !== author) &&
         <ButtonGroup>
-          <Button onClick={() => this.handleClick(1)}>Vote up</Button>
-          <Button onClick={() => this.handleClick(-1)}>Vote down</Button>
+          <Button onClick={() => this.handleClick(1)} ><FontAwesomeIcon icon={faThumbsUp}
+            alt="thumbsUp" />
+          </Button>
+          <Button onClick={() => this.handleClick(-1)}><FontAwesomeIcon icon={faThumbsDown}
+            alt="thumbsDown" /></Button>
         </ButtonGroup>
       }
       <p>{this.state.error}</p>

@@ -12,6 +12,7 @@ body {
 #navBar {
   background-color: #D6EAF8 ;
   font-family: 'Muli', sans-serif;
+  top: 0px;
 }
 .nav-link {
   color: #663399;
@@ -20,6 +21,8 @@ body {
   background-color:#D6EAF8  ;
   border-color:#D6EAF8 ;
   color:  #663399;
+  
+  
 }
 .btn-secondary {
   background-color:#D6EAF8  ;
@@ -54,8 +57,6 @@ body {
   grid-row: 1 /2;
 }
 .grid-comments {
-  background-color: #E3F2FD;
-  border: 1px solid rgba(0, 0, 0, 0.8);
   padding: 20px;
   font-size: 15px;
   text-align: center;
@@ -63,26 +64,27 @@ body {
   grid-row: 2/2;
   justify-self: stretch;
   align-self: start;
+  grid-row-gap: 10px;
 }
 
-
 .commentContainer {
-   grid-template-columns: 2fr ;
+  grid-template-columns: 2fr ;
   grid-template-rows: auto auto;
+  background-color: #E3F2FD;
+  border-radius: 25px;
+  grid-row-gap: 10px;
 }
 
 .comments {
    grid-column: 1 / 2;
    grid-row: 1/2;
-   border: 1px solid rgba(0, 0, 0, 0.8);
-   background-color: bisque;
+  grid-row-gap: 10px;
 }
 
 .commentButtons {
    grid-column: 1 / 2;
    grid-row: 2/3;
   border: 1px solid rgba(0, 0, 0, 0.8);
-  background-color: bisque;
 }
 
 .grid-articles {

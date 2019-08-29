@@ -21,7 +21,7 @@ exports.getArticleComments = async (article_id) => {
 
 //PATCH / api / articles /: article_id object in the form { inc_votes: newVote }
 exports.updateArticleVotes = async (article_id, vote) => {
-  const { data } = await axios.patch(`${baseUrl}/article/${article_id}`, { inc_votes: vote })
+  const { data } = await axios.patch(`${baseUrl}/articles/${article_id}`, { inc_votes: vote })
   return data.article;
 }
 
@@ -37,7 +37,6 @@ exports.deleteArticleComment = async (comment_id) => {
 
 //PATCH / api / comments /: comment_id { inc_votes: newVote }
 exports.updateCommentVotes = async (comment_id, vote) => {
-  console.log(comment_id)
   const { data } = await axios.patch(`${baseUrl}/comments/${comment_id}`, { inc_votes: vote })
   return data.comment;
 }
