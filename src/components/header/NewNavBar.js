@@ -51,12 +51,10 @@ export default class NewNavBar extends React.Component {
   }
 
   render() {
-    console.log(this.props)
     return (
       <div>
         <Navbar color="light" light expand="md" fixed="top">
-          <a className="navbar-brand" href="#">Logo</a>
-          <NavbarBrand href="/">reactstrap</NavbarBrand>
+          <NavbarBrand >KatNews</NavbarBrand>
           <NavbarToggler onClick={this.toggle} />
           <Collapse isOpen={this.state.isOpen} navbar>
             <Nav className="ml-auto" navbar>

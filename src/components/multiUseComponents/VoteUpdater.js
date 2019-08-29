@@ -49,7 +49,7 @@ class VoteUpdater extends Component {
         const { status, statusText } = error.response;
         navigate('/error', { state: { status, statusText } })
       });
-
+    this.setState({ votes: votes + vote })
     if (vote === 1) {
       if (voteDown) {
         this.setState({ voteDown: false })

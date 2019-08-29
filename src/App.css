@@ -7,28 +7,7 @@ box-sizing: border-box;
 body {
   height: 100%;
   background-color: #FFCCCC;
-}
-/*Nav components*/
-#navBar {
-  background-color: #D6EAF8 ;
-  font-family: 'Muli', sans-serif;
-  top: 0px;
-}
-.nav-link {
-  color: #663399;
-}
-.btn-secondary.dropdown-toggle {
-  background-color:#D6EAF8  ;
-  border-color:#D6EAF8 ;
-  color:  #663399;
-  
-  
-}
-.btn-secondary {
-  background-color:#D6EAF8  ;
-  border-color:#D6EAF8 ;
-  color:  #663399;
-  float: right;
+  padding-top: 70px; 
 }
 
 /*Article components*/
@@ -42,6 +21,7 @@ body {
   display: grid;
   grid-template-columns: 2fr 1fr;
   grid-template-rows: auto auto;
+  padding-top: 20px;
   padding: 10px;
   grid-column-gap: 10px;
   justify-items: start;
@@ -76,8 +56,8 @@ body {
 }
 
 .comments {
-   grid-column: 1 / 2;
-   grid-row: 1/2;
+  grid-column: 1 / 2;
+  grid-row: 1/2;
   grid-row-gap: 10px;
 }
 
