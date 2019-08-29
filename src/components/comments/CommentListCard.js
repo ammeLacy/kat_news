@@ -6,9 +6,11 @@ import { updateCommentVotes } from '../../utils/api';
 
 
 class CommentListCard extends Component {
+
   state = {
     deleted: false
-  };
+  }
+
   render() {
     const { comment, currentUser } = this.props;
     const { comment_id, author } = comment;
@@ -17,22 +19,31 @@ class CommentListCard extends Component {
     }
     return (
       <div className='commentContainer' >
-        <div className="comment">
-          <h2>author: {author}</h2>
-          <p>{comment.body}</p>
-          <VoteUpdater updateVotes={updateCommentVotes} object_id={comment_id} votes={comment.votes} currentUser={currentUser} author={author} />
-          <h3>posted: {comment.created_at} </h3>
-        </div>
         {(currentUser !== null && currentUser === author) &&
           <div className="commentButton">
-            <Button color="secondary" size="sm" onClick={() => {
-              deleteArticleComment(comment_id);
-              this.setState({ deleted: true })
-            }
-            }>
+            <Button
+              color="secondary"
+              size="sm"
+              onClick={() => {
+                deleteArticleComment(comment_id);
+                this.setState({ deleted: true })
+              }
+              }>
               Delete Comment</Button>
           </div>
         }
+        <div className="comment">
+          <h2>author: {author}</h2>
+          <p>{comment.body}</p>
+          <VoteUpdater
+            updateVotes={updateCommentVotes}
+            object_id={comment_id}
+            votes={comment.votes}
+            currentUser={currentUser}
+            author={author}
+          />
+          <h3>posted: {comment.created_at} </h3>
+        </div>
       </div>
     );
   }

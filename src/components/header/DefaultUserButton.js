@@ -9,11 +9,11 @@ const DefaultUserButton = (props) => {
     </div>
   );
 }
-
 const handleClick = (setuser) => {
   setuser('jessjelly');
 }
 
+
+
 export default DefaultUserButton;
 
-//onClick = {() => this.handleClick('created_at')}> Date posted</DropdownItem >

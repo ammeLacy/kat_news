@@ -1,22 +1,14 @@
 import React from 'react';
-import { getArticles } from '../../utils/api';
 import { ButtonDropdown, DropdownToggle, DropdownMenu, DropdownItem } from 'reactstrap';
 import { navigate } from "@reach/router";
 import { Link } from '@reach/router';
 
-const queryString = require('query-string');
-
 export default class ArticleDownButton extends React.Component {
+
   state = {
-    isLoading: true,
     dropdownOpen: false,
   };
-  componentDidMount() {
-    const queryParams = queryString.parse(this.props.search);
-    getArticles(queryParams).then((articles) => {
-      this.setState({ isLoading: false })
-    })
-  }
+
   toggle = () => {
     this.setState({
       dropdownOpen: !this.state.dropdownOpen

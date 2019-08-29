@@ -6,10 +6,12 @@ const queryString = require('query-string');
 
 
 class ArticleList extends Component {
+
   state = {
     articles: null,
     isLoading: true,
   }
+
   componentDidMount() {
     const queryParams = queryString.parse(this.props.search);
     getArticles(queryParams)
@@ -21,6 +23,7 @@ class ArticleList extends Component {
         navigate('/error', { state: { status, statusText } });
       })
   }
+
   render() {
     const { isLoading, articles } = this.state
     if (isLoading) {
@@ -35,10 +38,7 @@ class ArticleList extends Component {
             return <ArticleListCard key={article.article_id} article={article} />
           })
         }
-
       </dl>);
-
-
   }
 }
 

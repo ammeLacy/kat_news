@@ -13,22 +13,30 @@ class Article extends Component {
   };
 
   componentDidMount() {
-    const articlePromise = getArticle(this.props.id);
-    const commentsPromise = getArticleComments(this.props.id);
+    const { id } = this.props;
+    const articlePromise = getArticle(id);
+    const commentsPromise = getArticleComments(id);
     Promise.all([articlePromise, commentsPromise])
       .then((results) => {
-        this.setState({ article: results[0], comments: results[1], isLoading: false })
+        this.setState({
+          article: results[0],
+          comments: results[1],
+          isLoading: false
+        })
       }).catch((error => {
         const { status, statusText } = error.response;
         navigate('/error', { state: { status, statusText } });
       }))
   }
+
   showModal = () => {
     this.setState({ show: true });
-  };
+  }
+
   hideModal = () => {
     this.setState({ show: false });
-  };
+  }
+
   render() {
     const { isLoading, article, comments } = this.state
     if (isLoading) {
@@ -41,7 +49,6 @@ class Article extends Component {
           <CommentList comments={comments} currentUser={this.props.currentUser} />
           {/* <div className="grid-articles">2</div> */}
         </div>
-
       </>
     )
   }

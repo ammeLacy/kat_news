@@ -4,23 +4,26 @@ import { postArticleComments } from '../../utils/api';
 import { navigate } from '@reach/router';
 
 class CommentsModal extends React.Component {
+
   state = {
     modal: false,
     newComment: '',
   };
+
   toggle = () => {
     this.setState(prevState => ({
       modal: !prevState.modal
     }));
   }
+
   handleChange = (text) => {
     this.setState({ newComment: text });
   }
+
   handleSubmit = (event) => {
     event.preventDefault();
-    const { articleId } = this.props;
+    const { articleId, currentUser } = this.props;
     const { newComment } = this.state;
-    const { currentUser } = this.props;
     postArticleComments(newComment, currentUser, articleId)
       .then(() => { })
       .catch(error => {
@@ -29,6 +32,7 @@ class CommentsModal extends React.Component {
       })
     this.toggle();
   }
+
   render() {
     return (
       <div>
@@ -37,7 +41,10 @@ class CommentsModal extends React.Component {
           <form onSubmit={this.handleSubmit}>
             <ModalHeader toggle={this.toggle}>Write your comment</ModalHeader>
             <ModalBody>
-              <textarea type="text" rows="4" cols="50" name="newComment" maxLength={255} onChange={(e) => this.handleChange(e.target.value)} required></textarea>
+              <textarea
+                type="text" rows="4" cols="50" name="newComment" maxLength={255} required
+                onChange={(e) => this.handleChange(e.target.value)} >
+              </textarea>
             </ModalBody>
             <ModalFooter>
               <Button color="primary">Submit your comment</Button>

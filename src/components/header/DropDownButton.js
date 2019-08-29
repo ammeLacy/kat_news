@@ -4,6 +4,7 @@ import { getTopics } from '../../utils/api';
 import { Link } from '@reach/router';
 
 export default class DropDownButton extends React.Component {
+
   state = {
     dropdownOpen: false,
     topics: null,

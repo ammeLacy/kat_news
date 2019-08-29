@@ -7,7 +7,10 @@ const CommentList = (props) => {
     {
       comments.map(comment => {
         return <CommentListCard
-          key={comment.comment_id} comment={comment} currentUser={currentUser} />
+          key={comment.comment_id}
+          comment={comment}
+          currentUser={currentUser}
+        />
       })
     }
   </ul>);

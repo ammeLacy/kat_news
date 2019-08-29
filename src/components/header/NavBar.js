@@ -5,10 +5,9 @@ import ArticleDropDownButton from './ArticleDropDownButton';
 import DefaultUserButton from './DefaultUserButton';
 
 
-
 export default class NavBar extends React.Component {
-
   render() {
+    const { currentUser, setuser } = this.props;
     return (
       <>
         <Nav id="navBar">
@@ -22,10 +21,11 @@ export default class NavBar extends React.Component {
             <DropDownButton />
           </NavItem>
           <NavItem>
-            <DefaultUserButton currentUser={this.props.currentUser} setuser={this.props.setuser} />
+            <DefaultUserButton currentUser={currentUser} setuser={setuser} />
+          </NavItem>
+          <NavItem>
           </NavItem>
         </Nav>
-
       </>
     );
   }
