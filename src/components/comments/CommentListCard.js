@@ -1,8 +1,7 @@
 import React, { Component } from 'react';
 import { Button } from 'reactstrap';
-import { deleteArticleComment } from '../../utils/api';
+import { updateCommentVotes, deleteArticleComment } from '../../utils/api';
 import VoteUpdater from '../multiUseComponents/VoteUpdater';
-import { updateCommentVotes } from '../../utils/api';
 
 
 class CommentListCard extends Component {
