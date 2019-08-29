@@ -1,7 +1,7 @@
 import React from 'react';
 import { getTopics } from '../../utils/api';
 import { Link } from '@reach/router';
-import { Nav, NavItem, NavLink } from 'reactstrap';
+import { navigate } from "@reach/router";
 import {
   Collapse,
   Navbar,
@@ -13,8 +13,10 @@ import {
   UncontrolledDropdown,
   DropdownToggle,
   DropdownMenu,
-  DropdownItem
+  DropdownItem,
+  Button
 } from 'reactstrap';
+
 
 export default class NewNavBar extends React.Component {
 
@@ -22,18 +24,38 @@ export default class NewNavBar extends React.Component {
     isOpen: false,
     isLoading: true,
     topics: null,
+  };
+
+  componentDidMount() {
+    getTopics().then((topics) => {
+      this.setState({ topics, isLoading: false })
+    })
   }
 
-  toggle() {
+  toggle = () => {
     this.setState({
       isOpen: !this.state.isOpen
     });
   }
+
+  handleClick = (order) => {
+    navigate('/articles?sort_by=' + order);
+  }
+
+  handleLogInUserClick = () => {
+    this.props.setUser('jessjelly');
+  }
+
+  handleLogOutUserClick = () => {
+    this.props.setUser(null);
+  }
+
   render() {
+    console.log(this.props)
     return (
       <div>
         <Navbar color="light" light expand="md" fixed="top">
-          <a class="navbar-brand" href="#">Logo</a>
+          <a className="navbar-brand" href="#">Logo</a>
           <NavbarBrand href="/">reactstrap</NavbarBrand>
           <NavbarToggler onClick={this.toggle} />
           <Collapse isOpen={this.state.isOpen} navbar>
@@ -46,17 +68,37 @@ export default class NewNavBar extends React.Component {
                   Topics
                 </DropdownToggle>
                 <DropdownMenu right>
-                  <DropdownItem>
-                    Option 1
-                  </DropdownItem>
-                  {(!isLoading) && topics.map(topic => <DropdownItem key={topic.slug}>
+                  {(!this.state.isLoading) && this.state.topics.map(topic => <DropdownItem key={topic.slug}>
                     <Link to={`/articles?topic=${topic.slug}`}>{topic.slug}</Link>
                   </DropdownItem>
                   )}
                 </DropdownMenu>
               </UncontrolledDropdown>
+              <UncontrolledDropdown nav inNavbar>
+                <DropdownToggle nav caret>
+                  Articles
+                </DropdownToggle>
+                <DropdownMenu right>
+                  <DropdownItem onClick={() =>
+                    this.handleClick('created_at')}>
+                    Most recent
+                  </DropdownItem>
+                  <DropdownItem onClick={() =>
+                    this.handleClick('comment_count')}>
+                    Most Comments
+                  </DropdownItem>
+                  <DropdownItem onClick={() =>
+                    this.handleClick('votes')}>
+                    Most Votes
+                  </DropdownItem>
+                </DropdownMenu>
+              </UncontrolledDropdown>
             </Nav>
           </Collapse>
+          {(this.props.currentUser !== 'jessjelly') &&
+            <Button color="light" onClick={() => this.handleLogInUserClick()}>Login as JessJelly</Button>}
+          {(this.props.currentUser === 'jessjelly') &&
+            <Button color="light" onClick={() => this.handleLogOutUserClick()}>Log out JessJelly</Button>}
         </Navbar>
       </div>
     );

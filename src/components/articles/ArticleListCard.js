@@ -4,7 +4,7 @@ import { Link } from '@reach/router';
 
 
 const ArticleListCard = (articleobj) => {
-  const { article_id, title, topic, author, votes, comment_count } = articleobj.article;
+  const { article_id, title, topic, author, votes, comment_count, created_at } = articleobj.article;
   return (
     <div className="p-3 bg-info my-2 rounded">
       <Toast>
@@ -16,6 +16,7 @@ const ArticleListCard = (articleobj) => {
           <br />
           Author: {author}<br />
           Votes: {votes} <br />
+          Posted: {created_at}<br />
           Number of Comments: {comment_count}
         </ToastBody>
       </Toast>
