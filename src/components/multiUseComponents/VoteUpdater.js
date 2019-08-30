@@ -27,7 +27,7 @@ class VoteUpdater extends Component {
     return (<>
       <h4>Votes: {votes}</h4>
       {(currentUser !== undefined && currentUser !== null && currentUser !== author) &&
-        <ButtonGroup>
+        <ButtonGroup id="voteButtons">
           <Button disabled={voteUp} onClick={() => this.handleClick(1)} ><FontAwesomeIcon icon={faThumbsUp}
             alt="thumbsUp" />
           </Button>

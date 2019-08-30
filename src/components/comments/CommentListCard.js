@@ -19,9 +19,9 @@ class CommentListCard extends Component {
     return (
       <div className='commentContainer' >
         {(currentUser !== null && currentUser === author) &&
-          <div className="commentButton">
+          <div className="commentButton" >
             <Button
-              color="secondary"
+              color="secondary" id="deleteComment"
               size="sm"
               onClick={() => {
                 deleteArticleComment(comment_id);
