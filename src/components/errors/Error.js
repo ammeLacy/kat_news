@@ -1,18 +1,7 @@
 import React from 'react';
 
-const Error = (props) => {
-  const { state } = props.location;
-  if (state === null) {
-    const { status, statusText } = props.error
-    return (
-      <>
-        <p>{status}</p>
-        <p>{statusText}</p>
-      </>
-    )
-  }
-
-  const { status, statusText } = state;
+const Error = ({ location }) => {
+  const { status, statusText } = location.state;
   return (
     <>
       <h1>ERROR</h1>

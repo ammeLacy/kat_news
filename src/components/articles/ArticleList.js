@@ -20,7 +20,7 @@ class ArticleList extends Component {
       })
       .catch((error) => {
         const { status, statusText } = error.response;
-        navigate('/error', { state: { status, statusText } });
+        navigate('/error', { state: { status, statusText }, replace: true });
       })
   }
 

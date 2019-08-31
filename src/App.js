@@ -7,6 +7,7 @@ import Articles from './components/articles/Articles';
 import Article from './components/articles/Article';
 import Header from './components/header/Header';
 import Error from './components/errors/Error';
+import NotFound from './components/errors/not_found';
 
 class App extends Component {
   state = { currentUser: null }
@@ -18,7 +19,8 @@ class App extends Component {
           <Home path="/" />
           <Articles path="/articles" />
           <Article path="/articles/:id" currentUser={this.state.currentUser} />
-          <Error path="/error" error={{ status: 404, statusText: "not found" }} default />
+          <Error path="/error" />
+          <NotFound path="/*" default />
         </Router>
       </div>
     );
