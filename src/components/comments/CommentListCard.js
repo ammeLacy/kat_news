@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { Button } from 'reactstrap';
 import { updateCommentVotes, deleteArticleComment } from '../../utils/api';
 import VoteUpdater from '../multiUseComponents/VoteUpdater';
-
+const dateFormat = require('dateformat');
 
 class CommentListCard extends Component {
 
@@ -11,8 +11,7 @@ class CommentListCard extends Component {
   }
 
   render() {
-    const { comment, currentUser } = this.props;
-    const { comment_id, author } = comment;
+    const { comment_id, author, votes, body, created_at, currentUser } = this.props.comment;
     if (this.state.deleted) {
       return (<></>);
     }
@@ -33,15 +32,15 @@ class CommentListCard extends Component {
         }
         <div className="comment">
           <h2>author: {author}</h2>
-          <p>{comment.body}</p>
+          <p>{body}</p>
           <VoteUpdater
             updateVotes={updateCommentVotes}
             object_id={comment_id}
-            votes={comment.votes}
+            votes={votes}
             currentUser={currentUser}
             author={author}
           />
-          <h3>posted: {comment.created_at} </h3>
+          <p>posted: {dateFormat(created_at, 'dddd, mmmm dS, yyyy, h:MM:ss TT')} </p>
         </div>
       </div>
     );
