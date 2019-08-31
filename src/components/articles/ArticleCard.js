@@ -5,8 +5,7 @@ import { updateArticleVotes } from '../../utils/api';
 
 
 
-const ArticleCard = (props) => {
-  const { currentUser, article } = props;
+const ArticleCard = ({ currentUser, article }) => {
   const { article_id, author, body, comment_count, title, topic, votes } = article;
   return (
     <article className="grid-article">

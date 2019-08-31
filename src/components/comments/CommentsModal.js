@@ -28,7 +28,7 @@ class CommentsModal extends React.Component {
       .then(() => { })
       .catch(error => {
         const { status, statusText } = error.response;
-        navigate('/error', { state: { status, statusText } });
+        navigate('/error', { state: { status, statusText }, replace: true });
       })
     this.toggle();
   }

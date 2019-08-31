@@ -1,8 +1,7 @@
 import React from 'react';
 import CommentListCard from './CommentListCard';
 
-const CommentList = (props) => {
-  const { comments, currentUser } = props;
+const CommentList = ({ comments, currentUser }) => {
   return (<ul className="grid-comments">
     {
       comments.map(comment => {

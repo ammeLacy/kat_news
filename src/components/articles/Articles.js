@@ -1,8 +1,7 @@
 import React from 'react';
 import ArticleList from './ArticleList';
 
-const Articles = (props) => {
-  const { search } = props.location;
+const Articles = (search) => {
   return (
     <ArticleList key={search} search={search} />
   );
