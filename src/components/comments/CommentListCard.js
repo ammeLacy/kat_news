@@ -11,7 +11,8 @@ class CommentListCard extends Component {
   }
 
   render() {
-    const { comment_id, author, votes, body, created_at, currentUser } = this.props.comment;
+    const { currentUser } = this.props;
+    const { comment_id, author, votes, body, created_at } = this.props.comment;
     if (this.state.deleted) {
       return (<></>);
     }

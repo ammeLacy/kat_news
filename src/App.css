@@ -100,3 +100,9 @@ body {
    background-color:#E57373  ;
    border-color: #EF5350 ;
  }
+
+ dt {
+   font-family: 'Livvic', sans-serif;
+   font-style: normal;
+    font-weight: normal;
+ }
