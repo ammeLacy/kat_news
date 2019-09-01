@@ -3,6 +3,8 @@ import { getArticle, getArticleComments } from '../../utils/api';
 import ArticleCard from './ArticleCard';
 import CommentList from '../comments/CommentList';
 import { navigate } from '@reach/router';
+import ArticleList from './ArticleList';
+
 
 class Article extends Component {
   state = {
@@ -45,6 +47,12 @@ class Article extends Component {
       }));
   }
 
+  componentDidUpdate(prevProps) {
+    if (prevProps.id !== this.props.id) {
+      this.loadData();
+    }
+  }
+
   render() {
     const { isLoading, article, comments } = this.state
     if (isLoading) {
@@ -55,7 +63,7 @@ class Article extends Component {
         <div className="grid-container">
           <ArticleCard article={article} forceReRender={this.forceReRender} />
           <CommentList comments={comments} />
-          {/* <div className="grid-articles">2</div> */}
+          <ArticleList />
         </div>
       </>
     )

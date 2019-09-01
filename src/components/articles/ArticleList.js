@@ -47,7 +47,7 @@ class ArticleList extends Component {
       )
     }
     return (
-      <dl>
+      <dl className="grid-articles">
         {
           articles.map(article => {
             return <ArticleListCard key={article.article_id} article={article} />

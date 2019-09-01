@@ -16,6 +16,12 @@ body {
   background-size: cover;
 }
 
+
+
+.toast-header {
+  font-family: 'Livvic', sans-serif;
+}
+
 .grid-article, .grid-comments .toastHeader{
   font-family: 'Livvic', sans-serif;
 }
@@ -38,8 +44,8 @@ body {
   padding: 20px;
   font-size: 15px;
   text-align: center;
-  grid-column: 1 / 2;
-  grid-row: 1 /2;
+  grid-column: 1 ;
+  grid-row: 1 ;
 }
 
 .grid-comments {
@@ -47,10 +53,20 @@ body {
   font-size: 15px;
   text-align: center;
   grid-column: 1 / 2;
-  grid-row: 2/2;
+  grid-row: 2/3;
   justify-self: stretch;
   align-self: start;
   grid-row-gap: 10px;
+}
+
+.grid-articles {
+  background-color: rgba(255, 255, 255, 0.8);
+  border: 1px solid rgba(0, 0, 0, 0.8);
+  padding: 20px;
+  font-size: 30px;
+  text-align: center;
+  grid-column: 2 ;
+  grid-row: 1 / span 3;
 }
 
 .commentContainer {
@@ -59,12 +75,14 @@ body {
   background-color: #E3F2FD;
   border-radius: 25px;
   grid-row-gap: 10px;
+ 
 }
 
 .comments {
   grid-column: 1 / 2;
-  grid-row: 1/2;
+  grid-row: 2/3;
   grid-row-gap: 10px;
+  flex-grow: 1;
 }
 
 .commentButtons {
@@ -78,21 +96,6 @@ body {
   font-weight: normal;
   font-size: 1.0em;
   
-}
-
-.toast-header {
-  font-family: 'Livvic', sans-serif;
-}
-
-
-.grid-articles {
-  background-color: rgba(255, 255, 255, 0.8);
-  border: 1px solid rgba(0, 0, 0, 0.8);
-  padding: 20px;
-  font-size: 30px;
-  text-align: center;
-  grid-column: 1 / 2;
-  grid-row: 1 /2;
 }
 
 .btn-danger {

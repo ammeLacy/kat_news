@@ -36,8 +36,8 @@ export const updateCommentVotes = async (comment_id, vote) => {
   return data.comment;
 }
 
-export const getTopics = async () => {
-  const { data } = await axios.get(`${baseUrl}/topics`);
+export const getTopics = async (limit, sort_by) => {
+  const { data } = await axios.get(`${baseUrl}/topics`, { params: { limit, sort_by } });
   return data.topics;
 }
 

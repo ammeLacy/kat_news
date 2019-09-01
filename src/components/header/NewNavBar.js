@@ -16,6 +16,8 @@ import {
   Button
 } from 'reactstrap';
 import { UserConsumer } from '../CurrentUserContext';
+import NavPopularButton from './NavPopularButtons';
+
 
 export default class NewNavBar extends React.Component {
 
@@ -25,8 +27,9 @@ export default class NewNavBar extends React.Component {
     topics: null,
   };
 
+
   componentDidMount() {
-    getTopics().then((topics) => {
+    getTopics(10).then((topics) => {
       this.setState({ topics, isLoading: false })
     })
   }
@@ -55,6 +58,9 @@ export default class NewNavBar extends React.Component {
             <Nav className="ml-auto" navbar>
               <NavItem>
                 <NavLink href="/">Home</NavLink>
+              </NavItem>
+              <NavItem id="buttonGroup">
+                <NavPopularButton />
               </NavItem>
               <UncontrolledDropdown nav inNavbar>
                 <DropdownToggle nav caret>
