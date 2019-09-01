@@ -1,14 +1,17 @@
 import React, { Component } from 'react';
-import { Button } from 'reactstrap';
-import { updateCommentVotes, deleteArticleComment } from '../../utils/api';
+import { updateCommentVotes } from '../../utils/api';
 import VoteUpdater from '../multiUseComponents/VoteUpdater';
-import { UserConsumer } from '../CurrentUserContext';
+import DeleteCommentButton from './DeleteCommentButton'
 const dateFormat = require('dateformat');
 
 class CommentListCard extends Component {
 
   state = {
     deleted: false
+  }
+
+  setDeleted = () => {
+    this.setState({ deleted: true })
   }
 
   render() {
@@ -27,28 +30,7 @@ class CommentListCard extends Component {
             votes={votes}
             author={author}
           />
-          <UserConsumer>
-            {
-              ({ user }) => {
-                return (<>
-                  {(user !== null && user === author) &&
-                    <div className="commentButton" >
-                      <Button
-                        color="secondary" id="deleteComment"
-                        size="sm"
-                        onClick={() => {
-                          deleteArticleComment(comment_id);
-                          this.setState({ deleted: true })
-                        }
-                        }>
-                        Delete Comment</Button>
-                    </div>
-                  }
-                </>
-                )
-              }
-            }
-          </UserConsumer>
+          <DeleteCommentButton setDeleted={this.setDeleted} author={author} comment_id={comment_id} />
           <p>posted: {dateFormat(created_at, 'dddd, mmmm dS, yyyy, h:MM:ss TT')} </p>
         </div>
       </div>

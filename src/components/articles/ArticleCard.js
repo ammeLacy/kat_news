@@ -4,7 +4,7 @@ import VoteUpdater from '../multiUseComponents/VoteUpdater';
 import { updateArticleVotes } from '../../utils/api';
 import { UserConsumer } from '../CurrentUserContext';
 
-const ArticleCard = ({ article }) => {
+const ArticleCard = ({ article, forceReRender }) => {
   const { article_id, author, body, comment_count, title, topic, votes } = article;
   return (
     <article className="grid-article">
@@ -28,7 +28,7 @@ const ArticleCard = ({ article }) => {
           ({ user }) => {
             return (<>
               {(user !== null) &&
-                <CommentsModal articleId={article_id} />
+                <CommentsModal articleId={article_id} forceReRender={forceReRender} />
               }
             </>
             )

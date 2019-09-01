@@ -13,20 +13,7 @@ class Article extends Component {
   };
 
   componentDidMount() {
-    const { id } = this.props;
-    const articlePromise = getArticle(id);
-    const commentsPromise = getArticleComments(id);
-    Promise.all([articlePromise, commentsPromise])
-      .then((results) => {
-        this.setState({
-          article: results[0],
-          comments: results[1],
-          isLoading: false
-        })
-      }).catch((error => {
-        const { status, statusText } = error.response;
-        navigate('/error', { state: { status, statusText }, replace: true });
-      }))
+    this.loadData();
   }
 
   showModal = () => {
@@ -37,6 +24,27 @@ class Article extends Component {
     this.setState({ show: false });
   }
 
+  forceReRender = () => {
+    this.loadData();
+  }
+
+  loadData() {
+    const { id } = this.props;
+    const articlePromise = getArticle(id);
+    const commentsPromise = getArticleComments(id);
+    Promise.all([articlePromise, commentsPromise])
+      .then((results) => {
+        this.setState({
+          article: results[0],
+          comments: results[1],
+          isLoading: false
+        });
+      }).catch((error => {
+        const { status, statusText } = error.response;
+        navigate('/error', { state: { status, statusText }, replace: true });
+      }));
+  }
+
   render() {
     const { isLoading, article, comments } = this.state
     if (isLoading) {
@@ -45,7 +53,7 @@ class Article extends Component {
     return (
       <>
         <div className="grid-container">
-          <ArticleCard article={article} />
+          <ArticleCard article={article} forceReRender={this.forceReRender} />
           <CommentList comments={comments} />
           {/* <div className="grid-articles">2</div> */}
         </div>

@@ -23,10 +23,12 @@ class CommentsModal extends React.Component {
 
   handleSubmit = (event, user) => {
     event.preventDefault();
-    const { articleId } = this.props;
+    const { articleId, forceReRender } = this.props;
     const { newComment } = this.state;
     postArticleComments(newComment, user, articleId)
-      .then(() => { })
+      .then(() => {
+        forceReRender()
+      })
       .catch(error => {
         const { status, statusText } = error.response;
         navigate('/error', { state: { status, statusText }, replace: true });
