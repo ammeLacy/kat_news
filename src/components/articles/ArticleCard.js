@@ -3,8 +3,6 @@ import CommentsModal from '../comments/CommentsModal';
 import VoteUpdater from '../multiUseComponents/VoteUpdater';
 import { updateArticleVotes } from '../../utils/api';
 
-
-
 const ArticleCard = ({ currentUser, article }) => {
   const { article_id, author, body, comment_count, title, topic, votes } = article;
   return (

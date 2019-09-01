@@ -1,6 +1,14 @@
 import React from 'react';
 
 const Error = ({ location }) => {
+  if (location === undefined || location.state === undefined) {
+    return (
+      <>
+        <h1>ERROR</h1>
+        <p></p>
+      </>
+    );
+  }
   const { status, statusText } = location.state;
   return (
     <>

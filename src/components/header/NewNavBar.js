@@ -1,6 +1,5 @@
 import React from 'react';
 import { getTopics } from '../../utils/api';
-import { Link } from '@reach/router';
 import { navigate } from "@reach/router";
 import {
   Collapse,
@@ -38,8 +37,12 @@ export default class NewNavBar extends React.Component {
     });
   }
 
-  handleClick = (order) => {
+  handleSortedArticlesClick = (order) => {
     navigate('/articles?sort_by=' + order);
+  }
+
+  handleTopicsClick = (slug) => {
+    navigate('/articles?topic=' + slug);
   }
 
   handleLogInUserClick = () => {
@@ -66,8 +69,9 @@ export default class NewNavBar extends React.Component {
                   Topics
                 </DropdownToggle>
                 <DropdownMenu right>
-                  {(!this.state.isLoading) && this.state.topics.map(topic => <DropdownItem key={topic.slug}>
-                    <Link to={`/articles?topic=${topic.slug}`}>{topic.slug}</Link>
+                  {(!this.state.isLoading) && this.state.topics.map(topic => <DropdownItem
+                    key={topic.slug} onClick={() => this.handleTopicsClick(topic.slug)}>
+                    {topic.slug}
                   </DropdownItem>
                   )}
                 </DropdownMenu>
@@ -78,15 +82,15 @@ export default class NewNavBar extends React.Component {
                 </DropdownToggle>
                 <DropdownMenu right>
                   <DropdownItem onClick={() =>
-                    this.handleClick('created_at')}>
+                    this.handleSortedArticlesClick('created_at')}>
                     Most recent
                   </DropdownItem>
                   <DropdownItem onClick={() =>
-                    this.handleClick('comment_count')}>
+                    this.handleSortedArticlesClick('comment_count')}>
                     Most Comments
                   </DropdownItem>
                   <DropdownItem onClick={() =>
-                    this.handleClick('votes')}>
+                    this.handleSortedArticlesClick('votes')}>
                     Most Votes
                   </DropdownItem>
                 </DropdownMenu>

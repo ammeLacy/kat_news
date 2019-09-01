@@ -13,16 +13,31 @@ class ArticleList extends Component {
   }
 
   componentDidMount() {
+    this.fetchArticles();
+  }
+
+  fetchArticles() {
     const queryParams = queryString.parse(this.props.search);
     getArticles(queryParams)
       .then((articles) => {
-        this.setState({ articles, isLoading: false })
+        this.setState({ articles, isLoading: false });
       })
       .catch((error) => {
-        const { status, statusText } = error.response;
-        navigate('/error', { state: { status, statusText }, replace: true });
-      })
+        if (error.response === undefined) {
+          navigate('/error', { state: { status: 500, statusText: error }, replace: true });
+        } else {
+          const { status, statusText } = error.response;
+          navigate('/error', { state: { status, statusText }, replace: true });
+        }
+      });
   }
+
+  componentDidUpdate(prevProps) {
+    const { search } = this.props;
+    if (search !== prevProps.search) {
+      this.fetchArticles()
+    }
+  };
 
   render() {
     const { isLoading, articles } = this.state

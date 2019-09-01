@@ -37,11 +37,12 @@ class CommentsModal extends React.Component {
     return (
       <div>
         <Button color="danger" onClick={this.toggle}>Write a Comment</Button>
-        <Modal isOpen={this.state.modal} toggle={this.toggle} className={this.props.className}>
+        <Modal autoFocus={false} isOpen={this.state.modal} toggle={this.toggle} className={this.props.className}>
           <form onSubmit={this.handleSubmit}>
-            <ModalHeader toggle={this.toggle}>Write your comment</ModalHeader>
+            <ModalHeader toggle={this.toggle} id="commentModal">Write your comment</ModalHeader>
             <ModalBody>
               <textarea
+                autoFocus
                 type="text" rows="4" cols="50" name="newComment" maxLength={255} required
                 onChange={(e) => this.handleChange(e.target.value)} >
               </textarea>
