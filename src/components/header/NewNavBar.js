@@ -15,7 +15,7 @@ import {
   DropdownItem,
   Button
 } from 'reactstrap';
-
+import { UserConsumer } from '../CurrentUserContext';
 
 export default class NewNavBar extends React.Component {
 
@@ -43,14 +43,6 @@ export default class NewNavBar extends React.Component {
 
   handleTopicsClick = (slug) => {
     navigate('/articles?topic=' + slug);
-  }
-
-  handleLogInUserClick = () => {
-    this.props.setUser('jessjelly');
-  }
-
-  handleLogOutUserClick = () => {
-    this.props.setUser(null);
   }
 
   render() {
@@ -97,10 +89,18 @@ export default class NewNavBar extends React.Component {
               </UncontrolledDropdown>
             </Nav>
           </Collapse>
-          {(this.props.currentUser !== 'jessjelly') &&
-            <Button color="light" onClick={() => this.handleLogInUserClick()}>Login as JessJelly</Button>}
-          {(this.props.currentUser === 'jessjelly') &&
-            <Button color="light" onClick={() => this.handleLogOutUserClick()}>Log out JessJelly</Button>}
+          <UserConsumer>
+            {({ changeUser, user }) => {
+              return (
+                <>
+                  {(user !== 'jessjelly') &&
+                    <Button color="light" onClick={() => changeUser('jessjelly')}>Login as JessJelly</Button>}
+                  {(user === 'jessjelly') &&
+                    <Button color="light" onClick={() => changeUser(null)}>Log out JessJelly</Button>}
+                </>
+              )
+            }}
+          </UserConsumer>
         </Navbar>
       </div>
     );

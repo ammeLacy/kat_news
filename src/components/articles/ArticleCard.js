@@ -2,8 +2,9 @@ import React from 'react';
 import CommentsModal from '../comments/CommentsModal';
 import VoteUpdater from '../multiUseComponents/VoteUpdater';
 import { updateArticleVotes } from '../../utils/api';
+import { UserConsumer } from '../CurrentUserContext';
 
-const ArticleCard = ({ currentUser, article }) => {
+const ArticleCard = ({ article }) => {
   const { article_id, author, body, comment_count, title, topic, votes } = article;
   return (
     <article className="grid-article">
@@ -19,15 +20,21 @@ const ArticleCard = ({ currentUser, article }) => {
         updateVotes={updateArticleVotes}
         object_id={article_id}
         votes={votes}
-        currentUser={currentUser}
         author={author}
       />
-      {(currentUser !== null) &&
-        <CommentsModal
-          articleId={article_id}
-          currentUser={currentUser}
-        />
-      }
+
+      <UserConsumer>
+        {
+          ({ user }) => {
+            return (<>
+              {(user !== null) &&
+                <CommentsModal articleId={article_id} />
+              }
+            </>
+            )
+          }
+        }
+      </UserConsumer>
     </article >
   );
 };

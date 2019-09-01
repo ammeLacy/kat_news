@@ -8,25 +8,24 @@ import Article from './components/articles/Article';
 import Header from './components/header/Header';
 import Error from './components/errors/Error';
 import NotFound from './components/errors/not_found';
+import { UserProvider } from './components/CurrentUserContext'
 
 class App extends Component {
-  state = { currentUser: null }
   render() {
     return (
-      <div>
-        <Header currentUser={this.state.currentUser} setuser={this.setUser} />
-        <Router>
-          <Home path="/" />
-          <Articles path="/articles" />
-          <Article path="/articles/:id" currentUser={this.state.currentUser} />
-          <Error path="/error" />
-          <NotFound path="/*" default />
-        </Router>
-      </div>
+      <UserProvider>
+        <div>
+          <Header />
+          <Router>
+            <Home path="/" />
+            <Articles path="/articles" />
+            <Article path="/articles/:id" />
+            <Error path="/error" />
+            <NotFound path="/*" default />
+          </Router>
+        </div>
+      </UserProvider>
     );
-  }
-  setUser = (username) => {
-    this.setState({ currentUser: username });
   }
 }
 

@@ -45,8 +45,8 @@ class Article extends Component {
     return (
       <>
         <div className="grid-container">
-          <ArticleCard article={article} currentUser={this.props.currentUser} />
-          <CommentList comments={comments} currentUser={this.props.currentUser} />
+          <ArticleCard article={article} />
+          <CommentList comments={comments} />
           {/* <div className="grid-articles">2</div> */}
         </div>
       </>

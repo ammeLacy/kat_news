@@ -2,12 +2,9 @@ import React from 'react';
 import '../../App.css';
 import NewNavBar from './NewNavBar';
 
-const Header = (props) => {
-  const { currentUser, setuser } = props;
+const Header = () => {
   return (
-    <>
-      <NewNavBar currentUser={currentUser} setUser={setuser} />
-    </>
+    <NewNavBar />
   );
 }
 

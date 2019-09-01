@@ -3,6 +3,7 @@ import { Button, ButtonGroup } from 'reactstrap';
 import { faThumbsUp, faThumbsDown } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { navigate } from '@reach/router';
+import { UserConsumer } from '../CurrentUserContext';
 
 class VoteUpdater extends Component {
 
@@ -23,18 +24,27 @@ class VoteUpdater extends Component {
 
   render() {
     const { author, votes, voteUp, voteDown } = this.state;
-    const { currentUser } = this.props;
     return (<>
       <h4>Votes: {votes}</h4>
-      {(currentUser !== undefined && currentUser !== null && currentUser !== author) &&
-        <ButtonGroup id="voteButtons">
-          <Button disabled={voteUp} onClick={() => this.handleClick(1)} ><FontAwesomeIcon icon={faThumbsUp}
-            alt="thumbsUp" />
-          </Button>
-          <Button disabled={voteDown} onClick={() => this.handleClick(-1)}><FontAwesomeIcon icon={faThumbsDown}
-            alt="thumbsDown" /></Button>
-        </ButtonGroup>
-      }
+      <UserConsumer>
+        {
+          ({ user }) => {
+            return (
+              <>
+                {(user !== undefined && user !== null && user !== author) &&
+                  <ButtonGroup id="voteButtons">
+                    <Button disabled={voteUp} onClick={() => this.handleClick(1)} ><FontAwesomeIcon icon={faThumbsUp}
+                      alt="thumbsUp" />
+                    </Button>
+                    <Button disabled={voteDown} onClick={() => this.handleClick(-1)}><FontAwesomeIcon icon={faThumbsDown}
+                      alt="thumbsDown" /></Button>
+                  </ButtonGroup>
+                }
+              </>
+            )
+          }
+        }
+      </UserConsumer>
     </>);
   }
 
