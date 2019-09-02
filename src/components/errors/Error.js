@@ -5,7 +5,7 @@ const Error = ({ location }) => {
     return (
       <>
         <h1>ERROR</h1>
-        <p></p>
+        <img src="public/errorCat.jpg" alt="Puzzled Cat" className="responsive"></img>
       </>
     );
   }
@@ -15,6 +15,7 @@ const Error = ({ location }) => {
       <h1>ERROR</h1>
       <p>{status}</p>
       <p>{statusText}</p>
+      <img src="public/errorCat.jpg" alt="Puzzled Cat" className="responsive"></img>
     </>
   );
 }
