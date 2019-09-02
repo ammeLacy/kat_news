@@ -19,6 +19,7 @@ import { UserConsumer } from '../CurrentUserContext';
 import NavPopularButton from './NavPopularButtons';
 
 
+
 export default class NewNavBar extends React.Component {
 
   state = {
@@ -52,7 +53,7 @@ export default class NewNavBar extends React.Component {
     return (
       <div>
         <Navbar color="light" light expand="md" fixed="top">
-          <NavbarBrand >KatNews</NavbarBrand>
+          <NavbarBrand id="title">KatNews</NavbarBrand>
           <NavbarToggler onClick={this.toggle} />
           <Collapse isOpen={this.state.isOpen} navbar>
             <Nav className="ml-auto" navbar>
@@ -81,7 +82,7 @@ export default class NewNavBar extends React.Component {
                 <DropdownMenu right>
                   <DropdownItem onClick={() =>
                     this.handleSortedArticlesClick('created_at')}>
-                    Most recent
+                    Most Recent
                   </DropdownItem>
                   <DropdownItem onClick={() =>
                     this.handleSortedArticlesClick('comment_count')}>

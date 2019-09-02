@@ -4,9 +4,15 @@ box-sizing: border-box;
 .App {
   text-align: center;
 }
+.navbar-light .navbar-nav .nav-link {
+    color: rgba(0, 0, 0, 0.9);
+    font-family: 'Livvic', sans-serif;
+}
 
-/* font-family: 'Livvic', sans-serif;
-font-family: 'Noto Sans', sans-serif; */
+#title{
+  font-family: 'Pacifico', cursive; 
+  font-size: 25px;
+}
 
 body {
   background-image: linear-gradient(to bottom right, #FFEBEE  , #E1BEE7  );
@@ -15,8 +21,6 @@ body {
   background-attachment: fixed;
   background-size: cover;
 }
-
-
 
 .toast-header {
   font-family: 'Livvic', sans-serif;

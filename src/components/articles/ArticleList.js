@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { getArticles } from '../../utils/api';
 import ArticleListCard from './ArticleListCard';
 import { navigate } from '@reach/router';
+import LoadingSpinner from '../multiUseComponents/LoadingSpinner';
 const queryString = require('query-string');
 
 
@@ -43,7 +44,7 @@ class ArticleList extends Component {
     const { isLoading, articles } = this.state
     if (isLoading) {
       return (
-        <p>Loading</p>
+        <LoadingSpinner></LoadingSpinner>
       )
     }
     return (
