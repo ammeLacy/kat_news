@@ -2,7 +2,6 @@ import { Router } from '@reach/router';
 import React, { Component } from 'react';
 import 'bootstrap/dist/css/bootstrap.css';
 import './App.css';
-import Home from './components/home/Home';
 import Articles from './components/articles/Articles';
 import Article from './components/articles/Article';
 import Header from './components/header/Header';
@@ -17,7 +16,7 @@ class App extends Component {
         <div>
           <Header />
           <Router>
-            <Home path="/" />
+            <Articles path="/" />
             <Articles path="/articles" />
             <Article path="/articles/:id" />
             <Error path="/error" />
