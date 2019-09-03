@@ -44,7 +44,7 @@ class ArticleList extends Component {
     const { isLoading, articles } = this.state
     if (isLoading) {
       return (
-        <LoadingSpinner></LoadingSpinner>
+        <LoadingSpinner />
       )
     }
     return (

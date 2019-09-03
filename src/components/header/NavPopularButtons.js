@@ -27,7 +27,7 @@ export default class NavPopularButton extends React.Component {
   render() {
     return (
       (!this.state.isLoading) && this.state.topics.map(topic =>
-        <Button color="light" key={topic.slug} onClick={() => this.handleTopicsClick(topic.slug)}><FontAwesomeIcon icon={faChartLine}
+        <Button color="light" key={topic.slug} onClick={() => this.handleTopicsClick(topic.slug)}><FontAwesomeIcon className="trending" icon={faChartLine}
           alt="trending" />
           {topic.slug}
         </Button >

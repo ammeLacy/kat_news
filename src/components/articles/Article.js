@@ -4,6 +4,7 @@ import ArticleCard from './ArticleCard';
 import CommentList from '../comments/CommentList';
 import { navigate } from '@reach/router';
 import ArticleList from './ArticleList';
+import LoadingSpinner from '../multiUseComponents/LoadingSpinner';
 
 
 class Article extends Component {
@@ -56,7 +57,7 @@ class Article extends Component {
   render() {
     const { isLoading, article, comments } = this.state
     if (isLoading) {
-      return (<>Loading</>);
+      return (<LoadingSpinner />);
     }
     return (
       <>

@@ -5,7 +5,6 @@ import {
   Collapse,
   Navbar,
   NavbarToggler,
-  NavbarBrand,
   Nav,
   NavItem,
   UncontrolledDropdown,
@@ -52,7 +51,6 @@ export default class NewNavBar extends React.Component {
     return (
       <div>
         <Navbar color="light" light expand="md" fixed="top">
-          <NavbarBrand id="title">KatNews</NavbarBrand>
           <NavbarToggler onClick={this.toggle} />
           <Collapse isOpen={this.state.isOpen} navbar>
             <Nav className="ml-auto" navbar>
