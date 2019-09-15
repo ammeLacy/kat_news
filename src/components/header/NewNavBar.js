@@ -4,6 +4,7 @@ import { navigate } from "@reach/router";
 import {
   Collapse,
   Navbar,
+  NavbarBrand,
   NavbarToggler,
   Nav,
   NavItem,
@@ -51,6 +52,7 @@ export default class NewNavBar extends React.Component {
     return (
       <div>
         <Navbar color="light" light expand="md" fixed="top">
+          <NavbarBrand>Kat News</NavbarBrand>
           <NavbarToggler onClick={this.toggle} />
           <Collapse isOpen={this.state.isOpen} navbar>
             <Nav className="ml-auto" navbar>

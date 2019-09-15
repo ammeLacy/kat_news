@@ -15,7 +15,7 @@ class App extends Component {
       <UserProvider>
         <div>
           <Header />
-          <Router>
+          <Router >
             <Articles path="/" />
             <Articles path="/articles" />
             <Article path="/articles/:id" />

@@ -27,7 +27,7 @@ const ArticleCard = ({ article, forceReRender }) => {
         {
           ({ user }) => {
             return (<>
-              {(user !== null) &&
+              {(user !== null && user !== author) &&
                 <CommentsModal articleId={article_id} forceReRender={forceReRender} />
               }
             </>

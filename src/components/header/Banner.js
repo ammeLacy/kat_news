@@ -1,11 +1,11 @@
 import React from 'react';
-import banner from '../../static/banner.jpg'
+import catBanner from '../../static/catBanner.jpg'
 
 
 const Banner = () => {
   return (
     <div>
-      <img src={banner} alt="Row of cats" className="main_image"></img>
+      <img src={catBanner} alt="Row of cats" className="main_image"></img>
     </div>
   );
 };
