@@ -65,18 +65,14 @@ dropdown nav-item {
 }
 
 body {
-  background-image: linear-gradient(to bottom right, #FFEBEE  , #E1BEE7  );
+  background-image: linear-gradient(to bottom right, #FFEBEE  , #F4ECF7, #E1BEE7  );
   padding-top: 70px; 
    height: auto;
   background-attachment: fixed;
   background-size: cover;
 }
 
-.toast-header {
-  font-family: 'Livvic', sans-serif;
-}
-
-.grid-article, .grid-comments .toastHeader{
+.grid-article, .grid-comments {
   font-family: 'Livvic', sans-serif;
 }
 
@@ -93,7 +89,7 @@ body {
   align-items: start;
 }
 .grid-article {
-  background-color:#FFEBEE ;
+  background-color: #FEF9E7  ;
   border: 1px solid rgba(0, 0, 0, 0.8);
   padding: 20px;
   font-size: 15px;
@@ -114,7 +110,7 @@ body {
 }
 
 .grid-articles {
-  background-color:#FFEBEE ;
+  background-color: #FEF9E7  ; 
   border: 1px solid rgba(0, 0, 0, 0.8);
   padding: 20px;
   font-size: 30px;
@@ -167,7 +163,7 @@ body {
     border-color: #311B92  
 }
 .card-body {
-    background-color:#FFEBEE ;
+    background-image: linear-gradient(to bottom right, #FFEBEE  , #E1BEE7  );
 }
 
 #voteButtons {
@@ -183,6 +179,13 @@ body {
 dt {
   font-family: 'Livvic', sans-serif;
   font-weight: normal;
+}
+
+.card-img {
+  width: 70px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  padding: 5px;
 }
 
 .notFound {
